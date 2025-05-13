@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import page.HomePage;
 import page.CreditPage;
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreditTest {
     HomePage home;
@@ -24,7 +25,7 @@ public class CreditTest {
     @BeforeEach
     public void setUp() {
         open("http://localhost:8080");
-        home.homePage();
+        home = new HomePage();
         creditPage = home.creditPayment();
     }
 
@@ -50,7 +51,7 @@ public class CreditTest {
         creditPage.cleanFields();
         creditPage.fillCardPaymentForm(approvedCardNumber, validMonth, validYear, validOwnerName, validCode);
         creditPage.bankApprovedOperation();
-        Assertions.assertEquals("APPROVED", SQLHelper.getCreditPayment());
+        assertEquals("APPROVED", SQLHelper.getCreditPayment());
     }
 
 
@@ -61,7 +62,7 @@ public class CreditTest {
         creditPage.cleanFields();
         creditPage.fillCardPaymentForm(declinedCardNumber, validMonth, validYear, validOwnerName, validCode);
         creditPage.bankDeclinedOperation();
-        Assertions.assertEquals("DECLINED", SQLHelper.getCreditPayment());
+        assertEquals("DECLINED", SQLHelper.getCreditPayment());
     }
 
     @Test
@@ -224,7 +225,11 @@ public class CreditTest {
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
         creditPage.cleanFields();
-        creditPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
-        creditPage.errorFormat();
+        String expectedErrorMessage = "Поле обязательно для заполнения";
+        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("cardNumber"));
+        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("month"));
+        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("year"));
+        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("name"));
+        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("code"));
     }
 }
