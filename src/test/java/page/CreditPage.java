@@ -71,4 +71,7 @@ public class CreditPage {
         ownerField.doubleClick().sendKeys(Keys.BACK_SPACE);
         codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
     }
+
+    public String getErrorMessageForField(String year) {
+    }
 }
