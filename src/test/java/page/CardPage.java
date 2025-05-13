@@ -71,4 +71,7 @@ public class CardPage {
         ownerField.doubleClick().sendKeys(Keys.BACK_SPACE);
         codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
     }
+
+    public void checkErrorMessage(String неверныйФормат, String monthField) {
+    }
 }
