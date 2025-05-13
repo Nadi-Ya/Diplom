@@ -23,6 +23,7 @@ public class PaymentTest {
     @BeforeEach
     public void setUp() {
         open("http://localhost:8080");
+        home = new HomePage();
     }
 
     @BeforeAll
@@ -220,7 +221,10 @@ public class PaymentTest {
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
         cardPage.cleanFields();
-        cardPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
-        cardPage.errorFormat();
+        cardPage.checkErrorMessage("Неверный формат", "cardNumberField");
+        cardPage.checkErrorMessage("Неверный формат", "monthField");
+        cardPage.checkErrorMessage("Неверный формат", "yearField");
+        cardPage.checkErrorMessage("Неверный формат", "nameField");
+        cardPage.checkErrorMessage("Неверный формат", "codeField");
     }
 }
