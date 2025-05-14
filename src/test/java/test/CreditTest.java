@@ -224,7 +224,8 @@ public class CreditTest {
         var emptyYear = DataHelper.getEmptyField();
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
-        
+        creditPage.cleanFields();
+        creditPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
         creditPage.errorFormat();
     }
 }
