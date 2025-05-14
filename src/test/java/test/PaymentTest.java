@@ -212,7 +212,7 @@ public class PaymentTest {
         cardPage.errorFormat();
     }
 
-    @Test
+      @Test
     public void shouldEmptyAllFieldsCardPayment() {
         var cardPage = home.cardPayment();
         var emptyCardNumber = DataHelper.getEmptyField();
@@ -221,10 +221,6 @@ public class PaymentTest {
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
         cardPage.cleanFields();
-        cardPage.checkErrorMessage("Неверный формат", "cardNumberField");
-        cardPage.checkErrorMessage("Неверный формат", "monthField");
-        cardPage.checkErrorMessage("Неверный формат", "yearField");
-        cardPage.checkErrorMessage("Неверный формат", "nameField");
-        cardPage.checkErrorMessage("Неверный формат", "codeField");
+        cardPage.errorFormat();
     }
 }
