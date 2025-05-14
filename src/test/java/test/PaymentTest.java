@@ -212,7 +212,7 @@ public class PaymentTest {
         cardPage.errorFormat();
     }
 
-      @Test
+    @Test
     public void shouldEmptyAllFieldsCardPayment() {
         var cardPage = home.cardPayment();
         var emptyCardNumber = DataHelper.getEmptyField();
@@ -220,7 +220,8 @@ public class PaymentTest {
         var emptyYear = DataHelper.getEmptyField();
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
-
+        cardPage.cleanFields();
+        cardPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
         cardPage.errorFormat();
     }
 }
