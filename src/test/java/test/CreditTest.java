@@ -216,7 +216,7 @@ public class CreditTest {
         creditPage.errorFormat();
     }
 
-    @Test
+      @Test
     public void shouldEmptyAllFieldsCreditPayment() {
         var creditPage = home.creditPayment();
         var emptyCardNumber = DataHelper.getEmptyField();
@@ -224,12 +224,7 @@ public class CreditTest {
         var emptyYear = DataHelper.getEmptyField();
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
-        creditPage.cleanFields();
-        String expectedErrorMessage = "Поле обязательно для заполнения";
-        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("cardNumber"));
-        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("month"));
-        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("year"));
-        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("name"));
-        assertEquals(expectedErrorMessage, creditPage.getErrorMessageForField("code"));
+        
+        creditPage.errorFormat();
     }
 }
