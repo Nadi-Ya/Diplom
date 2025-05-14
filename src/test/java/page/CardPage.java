@@ -71,31 +71,4 @@ public class CardPage {
         ownerField.doubleClick().sendKeys(Keys.BACK_SPACE);
         codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
     }
-
-    public void checkErrorMessage(String expectedErrorMessage, String fieldName) {
-    SelenideElement errorMessageElement;
-
-    switch (fieldName) {
-        case "cardNumber":
-            errorMessageElement = errorFormat; 
-            break;
-        case "month":
-            errorMessageElement = errorFormat; 
-            break;
-        case "year":
-            errorMessageElement = errorCardTermValidity; 
-            break;
-        case "owner":
-            errorMessageElement = emptyField; 
-            break;
-        case "code":
-            errorMessageElement = errorFormat; 
-            break;
-        default:
-            throw new IllegalArgumentException("Неизвестное поле: " + fieldName);
-    }
-
-    errorMessageElement.shouldHave(text(expectedErrorMessage)).shouldBe(visible);
-}
-
 }
