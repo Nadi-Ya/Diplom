@@ -220,7 +220,7 @@ public class PaymentTest {
         var emptyYear = DataHelper.getEmptyField();
         var emptyName = DataHelper.getEmptyField();
         var emptyCode = DataHelper.getEmptyField();
-        cardPage.cleanFields();
+
         cardPage.errorFormat();
     }
 }
