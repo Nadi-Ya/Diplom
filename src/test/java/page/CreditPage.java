@@ -72,6 +72,21 @@ public class CreditPage {
         codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
     }
 
-    public String getErrorMessageForField(String year) {
+   public String getErrorMessageForField(String fieldName) {
+    switch (fieldName.toLowerCase()) {
+        case "cardnumber":
+            return errorFormat.shouldBe(visible).getText(); 
+        case "month":
+            return errorFormat.shouldBe(visible).getText(); 
+        case "year":
+            return errorCardTermValidity.shouldBe(visible).getText(); 
+        case "owner":
+            return emptyField.shouldBe(visible).getText(); 
+        case "code":
+            return errorFormat.shouldBe(visible).getText(); 
+        default:
+            return "Неизвестное поле"; 
     }
+}
+
 }
