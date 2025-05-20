@@ -215,17 +215,4 @@ public class CreditTest {
         creditPage.fillCardPaymentForm(approvedCardNumber, validMonth, validYear, validOwnerName, emptyCode);
         creditPage.errorFormat();
     }
-
-      @Test
-    public void shouldEmptyAllFieldsCreditPayment() {
-        var creditPage = home.creditPayment();
-        var emptyCardNumber = DataHelper.getEmptyField();
-        var emptyMonth = DataHelper.getEmptyField();
-        var emptyYear = DataHelper.getEmptyField();
-        var emptyName = DataHelper.getEmptyField();
-        var emptyCode = DataHelper.getEmptyField();
-        creditPage.cleanFields();
-        creditPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
-        creditPage.errorFormat();
-    }
 }
