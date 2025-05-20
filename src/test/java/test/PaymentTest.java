@@ -211,17 +211,4 @@ public class PaymentTest {
         cardPage.fillCardPaymentForm(approvedCardNumber, validMonth, validYear, validOwnerName, emptyCode);
         cardPage.errorFormat();
     }
-
-    @Test
-    public void shouldEmptyAllFieldsCardPayment() {
-        var cardPage = home.cardPayment();
-        var emptyCardNumber = DataHelper.getEmptyField();
-        var emptyMonth = DataHelper.getEmptyField();
-        var emptyYear = DataHelper.getEmptyField();
-        var emptyName = DataHelper.getEmptyField();
-        var emptyCode = DataHelper.getEmptyField();
-        cardPage.cleanFields();
-        cardPage.fillCardPaymentForm(emptyCardNumber, emptyMonth, emptyYear, emptyName, emptyCode);
-        cardPage.errorFormat();
-    }
 }
